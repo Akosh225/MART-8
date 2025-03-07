@@ -1,0 +1,105 @@
+body {
+    background-color: #860049;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* чтобы padding и border не увеличивали размеры */
+}
+
+.square {
+    width: calc(100vw - 60px);
+    height: calc(100vh - 60px);
+    background-color: #E768AD;
+    margin: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Общий стиль текста */
+.text, .text-2, .text-3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    color: #860049;
+    text-align: center;
+}
+
+/* Добавим плавное появление */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.text {
+    font-weight: bold;
+}
+
+.text-2 {
+    margin-top: 5px;
+}
+
+.text-3 {
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Центрируем картинку */
+.image-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.link-image {
+    width: 430px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+}
+
+.link-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Медиазапрос для телефонов */
+@media (max-width: 768px) {
+    .square {
+        width: calc(100vw - 20px);
+        height: calc(100vh - 20px);
+        margin: 10px;
+        padding-top: 10px;
+        border-radius: 15px;
+    }
+
+    .text, .text-2, .text-3 {
+        font-size: 24px;
+    }
+
+    .link-image {
+        width: 90%; /* адаптивная ширина для мобил */
+    }
+}
